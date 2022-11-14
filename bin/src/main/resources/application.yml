@@ -1,0 +1,33 @@
+server:
+  port: 9296
+
+spring:
+  application:
+    name: CLOUD-CONFIG
+  cloud:
+    config:
+      server:
+        git:
+          uri: https://github.com/raghugit01/pru-poc-cloud-config.git
+          default-label: master
+          clone-on-start: true
+
+eureka:
+  instance:
+    hostname: ${vcap.application.uris[0]:10.5.0.5}
+    prefer-ip-address: true
+    lease-renewal-interval-in-seconds: 10
+    lease-expiration-duration-in-seconds: 20
+  client:
+    serviceUrl:
+      defaultZone: http://10.5.0.5:8761/eureka
+
+#eureka:
+#  client:
+#    register-with-eureka: true
+#    fetch-registry: true
+#    service-url: 
+#      defaultZone: http://localhost:8761/eureka/
+#  instance:
+#    hostname: localhost
+   
