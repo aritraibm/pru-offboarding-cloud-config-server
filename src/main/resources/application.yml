@@ -8,26 +8,16 @@ spring:
     config:
       server:
         git:
-          uri: https://github.com/aritraibm/pru-offboarding-cloud-config.git
-          default-label: develop
+          uri: https://github.com/raghugit01/pru-poc-cloud-config.git
+          default-label: master
           clone-on-start: true
 
 eureka:
   instance:
-    hostname: ${vcap.application.uris[0]:localhost}
-    prefer-ip-address: true
-    lease-renewal-interval-in-seconds: 10
-    lease-expiration-duration-in-seconds: 20
+    instance-id: ${spring.application.name}
+    prefer-ip-address: false
   client:
-    serviceUrl:
-      defaultZone: http://localhost:8761/eureka
-
-#eureka:
-#  client:
-#    register-with-eureka: true
-#    fetch-registry: true
-#    service-url: 
-#      defaultZone: http://localhost:8761/eureka/
-#  instance:
-#    hostname: localhost
+    enabled: true
+    service-url:
+      defaultZone: http://${HOS}:8761/eureka
    

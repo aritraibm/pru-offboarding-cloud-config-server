@@ -57,7 +57,7 @@
 				<artifactId>spring-boot-maven-plugin</artifactId>
 			</plugin>
 		</plugins>
-		<finalName>cloud-config-service</finalName>
+		<finalName>config-service</finalName>
 	</build>
 
 </project>
