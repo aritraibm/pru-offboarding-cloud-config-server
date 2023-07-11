@@ -20,4 +20,3 @@ eureka:
     enabled: true
     service-url:
       defaultZone: http://${HOS}:8761/eureka
-   
